@@ -4,8 +4,8 @@ resource "aws_eks_cluster" "eks-magnum-bank-cluster" {
   version                   = var.cluster_version
   enabled_cluster_log_types = ["api", "audit"]
   vpc_config {
-    endpoint_private_access = true
-    endpoint_public_access  = false
+    endpoint_private_access = false
+    endpoint_public_access  = true
     subnet_ids              = var.subnet_ids
 
     security_group_ids = [aws_security_group.cluster.id]
